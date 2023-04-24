@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     elsif user.authenticate(pw)
       session.store(:user_id, user.id)
+      session.store(:user_username, user.username)
   
       redirect_to("/", { notice: "Welcome back, " + user.username })
     elsif
